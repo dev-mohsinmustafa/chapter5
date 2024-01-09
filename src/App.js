@@ -1,57 +1,93 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import { fetchTodos } from './redux/slices/todoSlice';
+import { Products } from './features/products/Products';
+import { Cart } from './features/cart/Cart';
+
+import { fetchAsync } from './features/cart/cartSlice';
+import News from './components/news/news';
+
 function App() {
+
+  // const dispatch = useDispatch();
+  // const state = useSelector(state => state);
+  // console.log("State", state);
+
+
+
+  // const [showCart, setShowCart] = useState(false);
+  // const items = useSelector(state => state.cart.items);
+
+  // useEffect(() => {
+  //   dispatch(fetchAsync())
+
+  // }, [])
+
+
+
+
+  // if (state.todo.isLoading) {
+  //   return <h1>Loading........</h1>
+  // }
+
+
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        {/* <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <button type="button" onClick={() => dispatch(fetchTodos())}>Fetch Todos</button>
+          {
+            state.todo.data && state.todo.data.map((todo) => {
+              return (
+                <div key={todo.id}>
+
+                  <li>Todos name: {todo.title}</li>
+
+                </div>
+              )
+            }
+            )}
+
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+        </header> */}
+
+        <News />
+
+
+
+        {/* <Products  /> */}
+
+
+
+
+
+
+
+        {/* button ke click krne pe cart shoew ho nahi to na ho */}
+        {/* toogle ka mltb abi jo uski value hai us se ulta hojaye  !setShowCard is true */}
+        {/* <button onClick={() => setShowCart(!showCart)}> Fetch Cart [ {items.length} ]</button> */}
+
+        {/* {showCart ?
+          <Cart /> : <Products />
+
+        } */}
+
+
+
+      </div>
+    </>
   );
 }
 
